@@ -21,7 +21,11 @@ class Category extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-    ];
+     protected $fillable = ['name'];
+
+    public function news()
+    {
+        return $this->hasMany(News::class, 'category_name', 'name');
+    }
+
 }

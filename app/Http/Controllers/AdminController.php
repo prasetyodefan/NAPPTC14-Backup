@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\News; 
 
 class AdminController extends Controller
 {
@@ -15,7 +16,8 @@ class AdminController extends Controller
     public function manageNews()
     {
         // Logic untuk mengambil data berita
-        return view('admin.news');
+        $news = News::latest()->get();    
+        return view('admin.news',compact('news') );
     }
 
     public function manageCategories()
